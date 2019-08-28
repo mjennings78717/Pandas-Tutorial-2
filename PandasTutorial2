@@ -1,0 +1,119 @@
+# Jupyter notebook inputs related to https://www.youtube.com/watch?v=xvpNA7bC8cs
+
+In [2]:
+1
+import pandas as pd
+
+In [3]:
+1
+# read csv from public area and print the top three rows
+2
+ufo = pd.read_csv('http://bit.ly/uforeports')
+3
+ufo.head(3)
+
+In [4]:
+1
+# Row 0 and all columns
+2
+ufo.loc[0, :]
+
+In [5]:
+1
+# print out row 5, 7 and 2 and all columns
+2
+ufo.loc[[5,7,2], :]
+
+In [7]:
+1
+# print similar to ufo.head(3)
+2
+ufo.loc[0:2, :]
+
+In [10]:
+1
+# print city and state columns of all rows
+2
+ufo.loc[:, ['City', 'State']]
+
+In [11]:
+1
+# print columns from City to State and all rows
+2
+ufo.loc[:, 'City': 'State']
+In [12]:
+1
+# print first three rows with columns from City to State
+2
+ufo.loc[0:2, 'City':'State']
+
+In [13]:
+1
+# print first three lines with Time column dropped.
+2
+ufo.head(3).drop('Time', axis =1)
+
+In [14]:
+1
+# pull all rows with a city of Oakland
+2
+ufo[ufo.City=='Oakland']
+
+In [16]:
+1
+# print the State column when Oakland is the city
+2
+ufo.loc[ufo.City=='Oakland', 'State']
+
+In [19]:
+1
+# print all rows and first four columns
+2
+ufo.iloc[:, 0:4]
+
+In [25]:
+1
+# City and State columns of all rows.
+2
+ufo[['City', 'State']]
+
+In [27]:
+1
+# First five rows with City and State columns.
+2
+ufo.loc[0:6, ['City', 'State']]
+
+In [28]:
+1
+# first two rows
+2
+ufo[0:2]
+
+In [30]:
+1
+# create a dataframe by reading a csv from the following online CSV
+2
+drinks = pd.read_csv('http://bit.ly/drinksbycountry', index_col='country')
+3
+# print out the first five columns
+4
+drinks.head(5)
+
+In [32]:
+1
+drinks.ix['Albania', 0]
+
+C:\ProgramData\Anaconda3\lib\site-packages\ipykernel_launcher.py:1: DeprecationWarning: 
+.ix is deprecated. Please use
+.loc for label based indexing or
+.iloc for positional indexing
+
+See the documentation here:
+http://pandas.pydata.org/pandas-docs/stable/indexing.html#ix-indexer-is-deprecated
+  """Entry point for launching an IPython kernel.
+
+In [35]:
+1
+# print first three rows and columns
+2
+drinks.iloc[0:3, 0:3]
